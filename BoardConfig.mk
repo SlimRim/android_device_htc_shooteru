@@ -43,8 +43,6 @@ TARGET_HARDWARE_3D := true
 TARGET_KERNEL_CONFIG := shooter_u_defconfig
 
 # Camera
-TARGET_DISABLE_ARM_PIE := true
-BOARD_CAMERA_USE_MM_HEAP := true
 BOARD_HTC_3D_SUPPORT := true
 
 # Bluetooth/Wifi
@@ -81,8 +79,6 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_FLASH_BLOCK_SIZE := 262144
 
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_RECOVERY_UI_LIB := librecovery_ui_shooteru
-TARGET_RECOVERY_INITRC := device/htc/shooteru/recovery/init.rc
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2

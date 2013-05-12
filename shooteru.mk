@@ -29,14 +29,6 @@ PRODUCT_COPY_FILES += \
     device/htc/shooteru/ramdisk/ueventd.shooteru.rc:root/ueventd.shooteru.rc \
     device/htc/shooteru/ramdisk/fstab.shooteru:root/fstab.shooteru
 
-## recovery and custom charging
-PRODUCT_COPY_FILES += \
-    device/htc/shooteru/recovery/sbin/choice_fn:recovery/root/sbin/choice_fn \
-    device/htc/shooteru/recovery/sbin/power_test:recovery/root/sbin/power_test \
-    device/htc/shooteru/recovery/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
-    device/htc/shooteru/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
-    device/htc/shooteru/recovery/sbin/htcbatt:recovery/root/sbin/htcbatt
-
 ## dsp Audio
 PRODUCT_COPY_FILES += \
     device/htc/shooteru/dsp/AIC3254_REG.csv:system/etc/AIC3254_REG.csv \
