@@ -105,6 +105,9 @@ on boot
     chown system system /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/max_gpuclk
     chmod 0666 /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
     chown system system /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
+    
+#PowerHal permissions
+    chown system /sys/devices/system/cpu/cpufreq/interactive/io_is_busy
 
     # flashlight
     chown system camera /sys/class/leds/flashlight/brightness
