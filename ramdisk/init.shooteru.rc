@@ -252,10 +252,9 @@ service htcbatt /system/bin/htcbatt
 #    disabled
 
 service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
-    class late_start
+    class main
     user root
     disabled
-    oneshot
 
 on property:init.svc.bootanim=stopped
     write /sys/devices/platform/panel_3d/3D_mode 0
