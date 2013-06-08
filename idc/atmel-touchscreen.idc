@@ -35,6 +35,8 @@ touch.size.calibration = area
 touch.size.scale = 15
 touch.size.bias = 0
 touch.size.isSummed = 0
+touch.toolSize.linearScale = 20
+touch.toolSize.linearBias = 70
 
 # Pressure
 # Driver reports signal strength as pressure.
@@ -42,7 +44,7 @@ touch.size.isSummed = 0
 # A normal index finger touch typically registers about 80 signal strength
 # units although we don't expect these values to be accurate.
 touch.pressure.calibration = amplitude
-touch.pressure.scale = 0.0105
+touch.pressure.scale = 5
 
 # Orientation
 touch.orientation.calibration = none
