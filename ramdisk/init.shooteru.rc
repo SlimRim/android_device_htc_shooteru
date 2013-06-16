@@ -60,6 +60,18 @@ on boot
     # for modem link
     chown system system /sys/module/serial/parameters/modem_enabled
 
+    # To prevent out of order acknowledgements from making
+    # connection tracking to treat them as not belonging to
+    # the connection they belong to.
+    # Otherwise, a weird issue happens in which some long
+    # connections on high-throughput links get dropped when
+    # an ack packet comes out of order
+    write /proc/sys/net/netfilter/nf_conntrack_tcp_be_liberal 1
+
+    # Flash storage isn't a good entropy source, and only causes locking
+    # overhead in the kernel. Turn it off.
+    write /sys/block/mmcblk0/queue/add_random 0
+
     # Wifi
     mkdir /data/misc 1771 system misc
     mkdir /data/misc/wifi 0770 wifi wifi
