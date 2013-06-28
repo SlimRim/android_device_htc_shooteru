@@ -20,4 +20,7 @@
     
     <!-- Volume Rocker -->
     <bool name="config_show_volumeRockerWake">true</bool>
+    
+    <!-- Home Button -->
+    <bool name="config_show_homeWake">true</bool>
 </resources>
