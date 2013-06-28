@@ -22,7 +22,7 @@
 <resources>
 
     <!-- Default color for notification LED is green. -->
-    <color name="config_defaultNotificationColor">#ff00ff00</color>
+    <color name="config_defaultNotificationColor">#10ff00</color>
 
     <!-- Default LED on time for notification LED in milliseconds. -->
     <integer name="config_defaultNotificationLedOn">1000</integer>
@@ -73,7 +73,7 @@
         <item>321</item>
         <item>641</item>
         <item>1281</item>
-	<item>1951</item>
+        <item>1951</item>
         <item>2601</item>
     </integer-array>
 
@@ -213,5 +213,4 @@
     </integer-array>
     <!-- The VoiceMail default value is displayed to my own number if it is true -->
     <bool name="config_telephony_use_own_number_for_voicemail">true</bool>
-
 </resources>
