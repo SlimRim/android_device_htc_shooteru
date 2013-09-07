@@ -1,0 +1,408 @@
+#!/system/bin/sh
+
+
+### Configure your options below ####
+
+
+##########################
+#####  CPU Governor  #####
+##########################
+
+# Kernel Default: interactive
+# Type 1 for > interactive (default)
+# Type 2 for > ondemand
+# Type 3 for > conservative
+# Type 4 for > performance
+
+# Enter the number you want below:
+
+GOV='1'
+
+
+###################################
+#####  CPU maximum frequency  #####
+###################################
+
+# CPU max frequency
+# Type 1 for > 1512Mhz (default)
+# Type 2 for > 1404Mhz
+# Type 3 for > 1296Mhz
+# Type 4 for > 1188Mhz
+# Type 5 for > 1080Mhz
+# Type 6 for > 972Mhz
+
+# Enter the number you want below:
+
+MAXFREQ='1'
+
+
+###########################
+#####  I/O scheduler  #####
+###########################
+
+# I/O scheduler
+# Type 1 for > row (default)
+# Type 2 for > cfq
+# Type 3 for > noop
+# Type 4 for > sio
+# Type 5 for > deadline
+
+# Enter the number you want below:
+
+IO='1'
+
+
+####################
+#####  3D GPU  #####
+####################
+
+# Maximum 3D GPU clock
+# Type 1 for > 200mhz
+# Type 2 for > 228mhz
+# Type 3 for > 267mhz (default)
+# Type 4 for > 300mhz
+# Type 5 for > 320mhz
+
+# Enter the number you want below:
+
+GPU_3D='3'
+
+
+####################
+#####  2D GPU  #####
+####################
+
+# Maximum 2D GPU clock
+# Type 1 for > 200mhz
+# Type 2 for > 228mhz (default)
+# Type 3 for > 267mhz
+
+# Enter the number you want below:
+
+GPU_2D='2'
+
+
+########################
+#####  FastCharge  #####
+########################
+
+
+# Enable Fastcharge
+# Type 0 > to disable ( default )
+# Type 1 > to enable
+
+# Enter the number you want below:
+
+FASTCHARGE='0'
+
+
+########################
+#####  Sweep2Wake  #####
+########################
+
+# Sweep2Wake
+# 0 = disabled (default)
+# 1 = enabled
+# 2 = enabled (with button backlight)
+
+# Enter the number you want below:
+
+SWEEP2WAKE='0'
+
+
+###########################
+###     Sweep2Wake      ###
+###  Start-Stop Buttons ###
+###########################
+
+# Start button
+# Type HOME > for HOME button (default)
+# Type MENU > for MENU button
+# Type BACK > BACK button
+
+# Enter the number you want below:
+
+SWEEP_START='HOME'
+
+# End button
+# Type SEARCH > for SEARCH button (default)
+# Type BACK > BACK button
+# Type MENU > for MENU button
+
+# Enter the number you want below:
+
+SWEEP_END='SEARCH'
+
+
+############################
+#####  Vibrator power  #####
+############################
+
+#Type a number between 1-100
+
+VIB_POWER='94'
+
+#####################################################################################
+#               DON'T EDIT ANYTHING BELOW THESE LINE                                #
+#####################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#####################################################################################
+#               SERIOUSLY...........GO BACK UP !!!!                                 #
+#####################################################################################
+
+
+L="log -p i -t GolanX-init.d"
+
+#Config CPU Governor
+case "$GOV" in
+1)
+    echo interactive > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+		echo interactive > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+		$L "Governor was set to:  `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor`"
+;;
+2)
+  	echo ondemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+		echo ondemand > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+		$L "Governor was set to:  `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor`"
+;;
+3)
+    echo conservative > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+		echo conservative > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+		$L "Governor was set to:  `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor`"
+;;
+4)
+    echo performance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+		echo performance > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+		$L "Governor was set to:  `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor`"
+;;
+esac
+
+#Config CPU MAXFREQ
+case "$MAXFREQ" in
+1)
+    chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    echo 1512000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    echo 1512000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    $L "CPU max freq was set to:  `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`"
+;;
+2)
+    chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    echo 1404000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    echo 1404000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    $L "CPU max freq was set to:  `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`"
+;;
+3)
+    chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    echo 1296000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    echo 1296000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    $L "CPU max freq was set to:  `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`"
+;;
+4)
+    chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    echo 1188000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    echo 1188000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    $L "CPU max freq was set to:  `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`"
+;;
+5)
+    chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    echo 1080000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    echo 1080000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    $L "CPU max freq was set to:  `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`"
+;;
+6)
+    chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    echo 972000 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    echo 972000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+    $L "CPU max freq was set to:  `cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq`"
+;;
+esac
+
+#Config I/O Scheduler
+case "$IO" in
+1)
+    chmod 644 /sys/block/mmcblk0/queue/scheduler
+    echo row > /sys/block/mmcblk0/queue/scheduler
+    chmod 644 /sys/block/mmcblk1/queue/scheduler
+    echo row > /sys/block/mmcblk1/queue/scheduler
+    $L "I/O scheduler was set to:  `cat /sys/block/mmcblk0/queue/scheduler`"
+;;
+2)
+    chmod 644 /sys/block/mmcblk0/queue/scheduler
+    echo cfq > /sys/block/mmcblk0/queue/scheduler
+    chmod 644 /sys/block/mmcblk1/queue/scheduler
+    echo cfq > /sys/block/mmcblk1/queue/scheduler
+    $L "I/O scheduler was set to:  `cat /sys/block/mmcblk0/queue/scheduler`"
+;;
+3)
+    chmod 644 /sys/block/mmcblk0/queue/scheduler
+    echo noop > /sys/block/mmcblk0/queue/scheduler
+    chmod 644 /sys/block/mmcblk1/queue/scheduler
+    echo noop > /sys/block/mmcblk1/queue/scheduler
+    $L "I/O scheduler was set to:  `cat /sys/block/mmcblk0/queue/scheduler`"
+;;
+4)
+    chmod 644 /sys/block/mmcblk0/queue/scheduler
+    echo sio > /sys/block/mmcblk0/queue/scheduler
+    chmod 644 /sys/block/mmcblk1/queue/scheduler
+    echo sio > /sys/block/mmcblk1/queue/scheduler
+    $L "I/O scheduler was set to:  `cat /sys/block/mmcblk0/queue/scheduler`"
+;;
+5)
+    chmod 644 /sys/block/mmcblk0/queue/scheduler
+    echo deadline > /sys/block/mmcblk0/queue/scheduler
+    chmod 644 /sys/block/mmcblk1/queue/scheduler
+    echo deadline > /sys/block/mmcblk1/queue/scheduler
+    $L "I/O scheduler was set to:  `cat /sys/block/mmcblk0/queue/scheduler`"
+;;
+esac
+
+#Config Max 3D clock
+case "$GPU_3D" in
+1)
+    chmod 644 /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
+    echo 200000000 > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
+    $L "Maximum 3D gpu clock was set to:  `cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk`"
+;;
+2)
+    chmod 644 /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
+    echo 228571000 > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
+    $L "Maximum 3D gpu clock was set to:  `cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk`"
+;;
+3)
+    chmod 644 /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
+    echo 266667000 > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
+    $L "Maximum 3D gpu clock was set to:  `cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk`"
+;;
+4)
+    chmod 644 /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
+    echo 300000000 > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
+    $L "Maximum 3D gpu clock was set to:  `cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk`"
+;;
+5)
+    chmod 644 /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
+    echo 320000000 > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk
+    $L "Maximum 3D gpu clock was set to:  `cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk`"
+;;
+esac
+
+#Config Max 2D clock
+case "$GPU_2D" in
+1)
+    chmod 644 /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk
+    chmod 644 /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/max_gpuclk
+    echo 200000000 > /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk
+    echo 200000000 > /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/max_gpuclk
+    $L "Maximum 2D gpu clock was set to:  `cat /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk`"
+;;
+2)
+    chmod 644 /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk
+    chmod 644 /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/max_gpuclk
+    echo 228571000 > /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk
+    echo 228571000 > /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/max_gpuclk
+    $L "Maximum 2D gpu clock was set to:  `cat /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk`"
+;;
+3)
+    chmod 644 /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk
+    chmod 644 /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/max_gpuclk
+    echo 266667000 > /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk
+    echo 266667000 > /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/max_gpuclk
+    $L "Maximum 2D gpu clock was set to:  `cat /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk`"
+;;
+esac
+
+#Config Fastcharge
+case "$FASTCHARGE" in
+0)
+    chmod 644 /sys/kernel/fast_charge/force_fast_charge
+    echo 0 > /sys/kernel/fast_charge/force_fast_charge
+    $L "USB forced_fast_charge was set to:  `cat /sys/kernel/fast_charge/force_fast_charge` (disabled)"
+;;
+1)
+    chmod 644 /sys/kernel/fast_charge/force_fast_charge
+    echo 1 > /sys/kernel/fast_charge/force_fast_charge
+    $L "USB forced_fast_charge was set to:  `cat /sys/kernel/fast_charge/force_fast_charge` (force_fast_charge)"
+;;
+esac
+
+#Config Sweep2Wake
+case "$SWEEP2WAKE" in
+0)
+    chmod 664 /sys/android_touch/sweep2wake
+    echo 0 > /sys/android_touch/sweep2wake
+    $L "Sweep2Wake was set to: `cat /sys/android_touch/sweep2wake` (disabled)"
+;;
+1)
+    chmod 664 /sys/android_touch/sweep2wake
+    echo 1 > /sys/android_touch/sweep2wake
+    $L "Sweep2Wake was set to: `cat /sys/android_touch/sweep2wake` (enabled - buttons light)"
+;;
+2)
+    chmod 664 /sys/android_touch/sweep2wake
+    echo 2 > /sys/android_touch/sweep2wake
+    $L "Sweep2Wake was set to: `cat /sys/android_touch/sweep2wake` (enabled - with buttons light)"
+;;
+esac
+
+#Config Sweep2Wake buttons
+
+if [ "$SWEEP2WAKE" > 0 ]
+then
+
+chmod 664 /sys/android_touch/sweep2wake_startbutton
+chmod 664 /sys/android_touch/sweep2wake_endbutton
+
+echo "$SWEEP_START" > /sys/android_touch/sweep2wake_startbutton
+$L "Sweep2Wake start button was set to: `cat /sys/android_touch/sweep2wake_startbutton`"
+echo "$SWEEP_END" > /sys/android_touch/sweep2wake_endbutton
+$L "Sweep2Wake end button was set to: `cat /sys/android_touch/sweep2wake_endbutton`"
+
+fi
+
+#Config Vibrator power
+
+if [ "$VIB_POWER" <= 100 ]
+then
+
+chmod 664 sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp
+echo "$VIB_POWER" > sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp
+$L "Vibrator power was set to: `cat sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp`%"
+
+else
+
+$L "Vibrator power value is between 0-100"
+
+fi
+
