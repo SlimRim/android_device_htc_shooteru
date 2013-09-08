@@ -140,10 +140,10 @@ SWEEP_END='SEARCH'
 
 #Type a number between 1-100
 
-VIB_POWER='94'
+VIB_POWER='80'
 
 #####################################################################################
-#               DON'T EDIT ANYTHING BELOW THESE LINE                                #
+#               DON'T EDIT ANYTHING BELOW THESE LINES                               #
 #####################################################################################
 
 
@@ -393,16 +393,7 @@ fi
 
 #Config Vibrator power
 
-if [ "$VIB_POWER" <= 100 ]
-then
-
 chmod 664 sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp
 echo "$VIB_POWER" > sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp
 $L "Vibrator power was set to: `cat sys/devices/platform/msm_ssbi.0/pm8058-core/pm8xxx-vib/amp`%"
-
-else
-
-$L "Vibrator power value is between 0-100"
-
-fi
 
