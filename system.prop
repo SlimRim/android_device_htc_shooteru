@@ -92,3 +92,10 @@ ro.emmc = 1
 
 # UMS
 persist.sys.usb.config=mass_storage,adb
+
+### NavBar ###
+qemu.hw.mainkeys=1
+### NavBar ###
+
+# Disable GC freed lines
+dalvik.vm.debug.alloc=0
