@@ -110,11 +110,11 @@ on boot
     chmod 0666 /sys/devices/platform/leds-pm8058/leds/button-backlight/currents
     chown system system /sys/devices/platform/leds-pm8058/leds/button-backlight/currents
     chmod 0666 /sys/android_touch/sweep2wake
-    chown system system /sys/android_touch/sweep2wake
+    chown system radio /sys/android_touch/sweep2wake
     chmod 0666 /sys/android_touch/sweep2wake_startbutton
-    chown system system /sys/android_touch/sweep2wake_startbutton
+    chown system radio /sys/android_touch/sweep2wake_startbutton
     chmod 0666 /sys/android_touch/sweep2wake_endbutton
-    chown system system /sys/android_touch/sweep2wake_endbutton
+    chown system radio /sys/android_touch/sweep2wake_endbutton
     chmod 0666 /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk
     chown system system /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk
     chmod 0666 /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/max_gpuclk
