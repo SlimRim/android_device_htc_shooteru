@@ -45,12 +45,15 @@ TARGET_KERNEL_CONFIG := shooter_u_defconfig
 # Camera
 BOARD_HTC_3D_SUPPORT := true
 
+#ION
+TARGET_USES_ION := true
+
 # Bluetooth/Wifi
 -include device/htc/msm8660-common/bcmdhd.mk
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/shooteru/bluetooth
 
 # Custom LUN File Path
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
 BOARD_KERNEL_CMDLINE := console=ttyHSL0 androidboot.hardware=shooteru no_console_suspend=1
 BOARD_KERNEL_BASE := 0x48000000
@@ -78,14 +81,24 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 1252770816
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_FLASH_BLOCK_SIZE := 262144
 
-RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_FSTAB := device/htc/shooteru/ramdisk/fstab.shooteru
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TARGET_RECOVERY_UI_LIB := librecovery_ui_shooteru
-TARGET_RECOVERY_INITRC := device/htc/shooteru/recovery/init.rc
+TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
 BOARD_USES_MMCUTILS := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_HAS_NO_SELECT_BUTTON := true
+
+#TWRP
+DEVICE_RESOLUTION := 540x960
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGB_565"
+TW_INCLUDE_DUMLOCK := true
+TW_INCLUDE_JB_CRYPTO := true
+HAVE_SELINUX := true
+TW_BRIGHTNESS_PATH := /sys/devices/platform/msm_fb.590337/leds/lcd-backlight/brightness
+TW_MAX_BRIGHTNESS := 255
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"

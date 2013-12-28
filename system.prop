@@ -19,8 +19,8 @@ media.stagefright.enable-scan=true
 mmp.enable.3g2=true
 
 #Hdmi
-com.qc.hdmi_out=true
-ro.hdmi.enable=true
+#com.qc.hdmi_out=true
+#ro.hdmi.enable=true
 
 # board has 3D panel
 persist.user.panel3D=1
